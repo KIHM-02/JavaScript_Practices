@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Listado</title>
+</head>
+<body>
+    <main>
+        <header><h1 class="titulos">Listado de personas</h1></header>
+
+        <section class="container">
+            <div class="left-div">
+                <form id="form-data">
+                    <article class="input-blocks">
+                        <label for="txtName">Nombres: </label>
+                        <input type="text" id="txtName" name ="txtName" placeholder="Ingresa los nombres">
+                    </article>
+
+                    <article class="input-blocks">
+                        <label for="txtLast">Apellidos: </label>
+                        <input type="text" id="txtLast" name ="txtLast" placeholder="Ingresa los apellidos">
+                    </article>
+                    
+                </form>
+                <button id="btnAdd" >Registrar</button>
+            </div>
+
+            <div class="right-div">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                        </tr>
+                    </thead>
+                    <tbody id ="tbody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="functions.js"></script>
+</body>
+</html>
