@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Archivo Black", sans-serif;
+    
+    font-weight: 400;
+    font-style: normal;
+}
+
+body{
+    height: 100vh;
+}
+
+.square{
+    width: 30%;
+    height: 20vh;
+    margin: auto;
+    margin-top: 150px; 
+    padding: 20px;
+    display: flex;
+    flex-flow: column;
+    border-radius: 30px;
+    box-shadow: 0px 3px 10px black;
+}
+
+.time, .date{
+    display: flex;
+    flex-flow: row wrap;
+    padding: 25px;
+    gap: 25px;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.time{
+    color: white;
+    font-size: 40px;
+}
+
+.date{
+    color: black;
+    font-size: 20px;
+}
+
+
+/*Diseños de javascript*/
+
+.day-time{
+    background: linear-gradient(0deg, #05161A, #072E33, #0C7075, #0f969C, #6DA5C0, #294D61 ) no-repeat;
+}
+
+.mid-time{
+    background: linear-gradient(0deg, #0D1C25, #104C84, #C6C6D0, #D59D80, #C0754D, #B6410F ) no-repeat;
+}
+
+.night-time{
+    background: linear-gradient(0deg, #06141B, #11212D, #253745, #4A5C6A, #9BA8AB, #CCD0CF ) no-repeat;
+}
