@@ -141,3 +141,21 @@ td{
     color: white;
     padding: var(--small-padding);
 }
+
+.delete-button{
+    background-image: url('../icons/icon_delete.png');
+    background-size: cover;
+    width: 3em;
+    height: 3em;
+    background-color: var(--grey);
+    border: none;
+}
+
+.edit-button{
+    background-image: url('../icons/icon_edit.png');
+    background-size: cover;
+    width: 3em;
+    height: 3em;
+    background-color: var(--grey);
+    border: none;
+}
