@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Presupuesto</title>
+</head>
+<body>
+    <header>
+        <section class="header-content">
+            <label class="money-square">Balance:   $<span id ="quantity">17'000.00</span></label>
+            
+            <div class="money-in-out">
+                <label class="green-text">Ingresos: $<span class="green-text" id="incomes">3600</span></label>
+                <label class="red-text">Egresos: $<span class="red-text" id="expenses">1100</span></label>
+            </div>
+            
+            <select class="btn-selector">
+                <option value="">Cuenta 1</option>
+                <option value="">Cuenta 2</option>
+            </select>
+        </section>
+    </header>
+
+    <section class="bar-content">
+        <div class="bar">
+            <form>
+                <select class="btn-selector">
+                    <option >Ingreso</option>
+                    <option >Egreso</option>
+                </select>
+        
+                <input class="text-input" type="text" placeholder="Descripcion">
+                <input class="text-input" type="text" placeholder="Monto">
+            </form>
+            
+            <button class="save-button">
+                
+            </button>
+        </div>
+    </section>
+
+    <main>
+        <section id="table-incomes">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descripcion</th>
+                        <th>Monto</th>
+                        <th>Modificar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Salario</td>
+                        <td>$2300</td>
+                        <td>Modificar</td>
+                        <td>Eliminar</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="table-expenses">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descripcion</th>
+                        <th>Monto</th>
+                        <th>Cantidad real</th>
+                        <th>Agregar</th>
+                        <th>Modificar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Comida</td>
+                        <td>$700</td>
+                        <td>$456</td>
+                        <td>Agregar</td>
+                        <td>Modificar</td>
+                        <td>Eliminar</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

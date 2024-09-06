@@ -1,0 +1,19 @@
+:root{
+    --yellow: #E09145;
+    --black: #17181D;
+    --grey:#292C35;
+    --cream: #FCD9B8;
+    --white-shadow: #afaeae;
+
+    --mid-border: 10px;
+    --large-border: 30px;
+
+    --small-padding: 10px;
+    --super-small-padding: 5px;
+
+    --titles: 3em;
+    --subtitles: 2em;
+    --text: 1.5em;
+    --small-text: 1em;
+    
+}
