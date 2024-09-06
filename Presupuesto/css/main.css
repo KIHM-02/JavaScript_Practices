@@ -115,5 +115,29 @@ main{
     margin-top: 20px;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
+}
+
+table{
+    border: 2px solid white;
+    border-right: none;
+    border-left: none;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th{
+    padding: var(--normal-padding);
+    color: var(--cream);
+    font-weight: 600;
+    background-color: var(--black);
+
+    border: 2px solid white;
+    border-right: none;
+    border-left: none;
+}
+
+td{
+    color: white;
+    padding: var(--small-padding);
 }
