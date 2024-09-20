@@ -23,9 +23,9 @@ class CRUD
 
         try{
             conn = await pool.getConnection();
-            const[rows, fields] = await conn.execute(query, values);
+            await conn.execute(query, values);
 
-            console.log(rows);
+            //console.log(rows);
             console.log("Insert ejecutado");
 
         }catch(err){
@@ -43,32 +43,78 @@ class CRUD
         }
 
         let conn;
-        let sql = `SELECT `
+        let query = `SELECT `;
 
         if(cells && Array.isArray(cells)){
             const cellString = cells.toString();
 
-            sql += `${cellString} `;
+            query += `${cellString} `;
         }
         else{
-            sql += `* `;
+            query += `* `;
         }
 
-        sql += ` FROM ${table} WHERE 1 = 1 `;
+        query += ` FROM ${table} WHERE 1 = 1 `;
 
         if(conditionals){
             for(const [key, value] of Object.entries(conditionals))
             {
                 if(typeof value === "string")
                 {
-                    sql += ` AND ${key} LIKE %${value}%`;
+                    query += ` AND ${key} LIKE %${value}%`;
                 }
                 else
                 {
-                    sql += ` AND ${key} = ${value}`;
+                    query += ` AND ${key} = ${value}`;
                 }
             }
         }
+
+        try{
+            conn = await pool.getConnection();
+            const[rows] = await conn.execute(query);
+
+            console.log(rows);
+            console.log('Consulta ejecutada');
+
+        }catch(err){
+            console.log("Hubo un error en el select", err);
+        }finally{
+            if(conn) conn.release();
+        }
     }
 
-}
+    async delete(table, conditionals)
+    {
+        if(!table || !conditionals || Object.keys(conditionals).length === 0){
+            throw new Error('Los parametros no pueden estar vacios');
+        }
+
+        let conn;
+        let query = `DELETE FROM ${table} WHERE 1 = 1`;
+
+        for(const [key, value] of Object.entries(conditionals))
+        {
+            if(typeof value === "string")
+            {
+                query += ` AND ${key} LIKE '${value}' `;
+            }
+            else
+            {
+                query += ` AND ${key} = ${value}`;
+            }
+        }
+
+        try{
+            conn = await pool.getConnection();
+            await conn.execute(query);
+
+            console.log('Consulta ejecutada');
+
+        }catch(err){
+            console.log("Hubo un error en el delete", err);
+        }finally{
+            if(conn) conn.release();
+        }
+    }
+}   
