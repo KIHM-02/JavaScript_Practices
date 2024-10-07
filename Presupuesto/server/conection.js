@@ -10,4 +10,5 @@ const pool = mysql.createPool({
     queueLimit: 0
 });
 
+
 module.exports = pool; //En node.js nos permite exportar el pool de conexiones para poder usarlo en otros archivos

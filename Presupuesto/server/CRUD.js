@@ -1,4 +1,6 @@
-const pool = require("./conection.js");
+'use strict'
+
+const pool = require("conection.js");
 
 class CRUD
 {
@@ -76,6 +78,8 @@ class CRUD
 
             console.log(rows);
             console.log('Consulta ejecutada');
+
+            return rows;
 
         }catch(err){
             console.log("Hubo un error en el select", err);
