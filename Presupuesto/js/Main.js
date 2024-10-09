@@ -18,6 +18,7 @@ btnCreateAccount.addEventListener('click', ()=>{
         };
 
         let crud = new CRUD()
+        
         crud.insert('cuenta', stmt);
 
     }catch(err){

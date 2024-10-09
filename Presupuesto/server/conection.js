@@ -1,4 +1,5 @@
-const mysql = require('mysql2/promise');
+//const mysql = require('mysql2/promise');
+import {mysql} from '../node_modules/mysql2/promise'
 
 const pool = mysql.createPool({
     host: 'localhost',
@@ -10,5 +11,5 @@ const pool = mysql.createPool({
     queueLimit: 0
 });
 
-
-module.exports = pool; //En node.js nos permite exportar el pool de conexiones para poder usarlo en otros archivos
+export default pool;
+//module.exports = pool; //En node.js nos permite exportar el pool de conexiones para poder usarlo en otros archivos

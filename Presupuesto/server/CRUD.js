@@ -1,6 +1,7 @@
 'use strict'
 
-const pool = require("conection.js");
+//const pool = require("./conection.js");
+import {pool} from '../server/conection.js'
 
 class CRUD
 {
