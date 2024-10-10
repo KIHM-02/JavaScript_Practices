@@ -41,19 +41,14 @@ function countBalance()
     {
         sum += parseFloat(incomes.getMonto);
     }
-
-    console.log("Suma :"+sum);
     
     for(let expenses of egresos)
     {
-        res += parseFloat(expenses.getMonto);
+        res += parseFloat(expenses.getCantReal);
     }
-    
-    console.log("Resta: "+res);
 
     result = parseFloat(sum) - parseFloat(res);
 
-    console.log(`Balance: ${result}`);
     txtBalance.innerHTML = result;
     lblExpenses.innerHTML = res;
     lblIncomes.innerHTML = sum;
@@ -63,17 +58,20 @@ function drawTable()
 {
     let entradas ="";
     let salidas = "";
+    let iteracion = 0;
 
     for(let incomes of ingresos)
     {
         entradas += `<tr>
                         <td>${incomes.getDescripcion}</td>
                         <td>$${incomes.getMonto}</td>
-                        <td><button id="delete-income" class="delete-button"></button></td>
-                        <td><button id="" class="edit-button"></button></td>
+                        <td><button class="delete-button btnDeleteIncome" value ="${iteracion}"></button></td>
+                        <td><button class="edit-button btnEditIncome" value ="${iteracion}"></button></td>
                     </tr>`;
+        iteracion++;
     }
 
+    iteracion = 0;
         
     for(let expenses of egresos)
     {
@@ -81,13 +79,22 @@ function drawTable()
                         <td>${expenses.getDescripcion}</td>
                         <td>$${expenses.getMonto}</td>
                         <td>$${expenses.getCantReal}</td>
-                        <td><button id="delete-expense" class="delete-button"></button></td>
-                        <td><button id="" class="edit-button"></button></td>
+                        <td><button class="delete-button btnDeleteExpense" value ="${iteracion}"></button></td>
+                        <td><button class="edit-button btnEditExpense" value ="${iteracion}"></button></td>
                     </tr>`;
+        iteracion++;
     }
 
     tbodyIncomes.innerHTML = entradas;
     tbodyExpenses.innerHTML = salidas;
+}
+
+function deleteData(index, array)
+{
+    array.splice(index, 1);
+    countBalance();
+    drawTable();
+    clearInput();
 }
 
 //Tags
@@ -124,6 +131,40 @@ document.getElementById('save').addEventListener('click', ()=>{
     clearInput();
 });
 
-document.getElementById('delete-income').addEventListener('click', ()=>{
-    
-})
+tbodyIncomes.addEventListener('click', e => { 
+    console.log(e.target);
+    if(e.target.classList.contains('btnDeleteIncome'))
+    {
+        let index = e.target.value;
+        deleteData(index, ingresos);
+    }
+    else if(e.target.classList.contains('btnEditIncome'))
+    {
+        let index = e.target.value;
+        const monto = parseFloat(prompt("Ingresa la nueva cantidad: "));
+        ingresos[index].setMonto = monto;
+        //console.log(ingresos[index].getMonto);
+        countBalance();
+        drawTable();
+        clearInput();
+    }
+});
+
+tbodyExpenses.addEventListener('click', e => { 
+    console.log(e.target);
+    if(e.target.classList.contains('btnDeleteExpense'))
+    {
+        let index = e.target.value;
+        deleteData(index, egresos);
+    }
+    else if(e.target.classList.contains('btnEditExpense'))
+    {
+        let index = e.target.value;
+        const monto = parseFloat(prompt("Ingresa la nueva cantidad: "));
+        egresos[index].setCantReal = monto;
+        //console.log(egresos[index].getCantReal);
+        countBalance();
+        drawTable();
+        clearInput();
+    }
+});
